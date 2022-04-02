@@ -3,26 +3,42 @@ local styles = require("gruvbox.settings").styles
 local utils = require("gruvbox.utils")
 
 -- options (dark mode by default)
-local bg0 = colors.dark0
-local bg1 = colors.dark1
-local bg2 = colors.dark2
-local bg3 = colors.dark3
-local bg4 = colors.dark4
+local bg0 = colors.dark0 -- main editor background 
+local bg1 = colors.dark1 -- gutter & title background 
+local bg2 = colors.dark2 -- fold line colors 
+local bg3 = colors.dark3 -- closing bracket/parenthesis highlight color
+local bg4 = colors.dark4 -- line numbers
 
 local fg0 = colors.light0
-local fg1 = colors.light1
+local fg1 = colors.light1 -- main text foreground color
 local fg2 = colors.light2
 local fg3 = colors.light3
 local fg4 = colors.light4
 
-local red = colors.bright_red
-local green = colors.bright_green
-local yellow = colors.bright_yellow
-local blue = colors.bright_blue
-local purple = colors.bright_purple
-local aqua = colors.bright_aqua
-local orange = colors.bright_orange
-local gray = colors.gray
+local red =     colors.bright_red
+local green =   colors.bright_green
+local yellow =  colors.bright_yellow
+local blue =    colors.bright_blue
+local purple =  colors.bright_purple
+local aqua =    colors.bright_aqua
+local orange =  colors.bright_orange
+local gray =    colors.gray
+
+------------------------------------------
+        -- asura theme colors --
+local aDark  =  colors.asura_dark
+local aWhite =  colors.asura_white
+local aRed   =  colors.asura_red
+local aGreen =  colors.asura_green
+local aYellow = colors.asura_yellow
+local aBlue  =  colors.asura_blue
+local aLavender = colors.asura_lavender
+local aPurple = colors.asura_purple
+local aPink  =  colors.asura_pink
+local aAqua  =  colors.asura_aqua
+local aOrange = colors.asura_orange
+------------------------------------------
+
 
 local bg = vim.o.background
 if bg == nil then
@@ -43,12 +59,12 @@ if bg == "light" then
   fg3 = colors.dark3
   fg4 = colors.dark4
   red = colors.faded_red
-  green = colors.faded_green
-  yellow = colors.faded_yellow
-  blue = colors.faded_blue
-  purple = colors.faded_purple
-  aqua = colors.faded_aqua
-  orange = colors.faded_orange
+  green  =  colors.faded_green
+  yellow =  colors.faded_yellow
+  blue   =  colors.faded_blue
+  purple =  colors.faded_purple
+  aqua   =  colors.faded_aqua
+  orange =  colors.faded_orange
 end
 
 -- handle light/dark contrast settings
@@ -71,53 +87,53 @@ colors.fg2 = fg2
 colors.fg3 = fg3
 colors.fg4 = fg4
 colors.red = red
-colors.green = green
+colors.green =  green
 colors.yellow = yellow
-colors.blue = blue
+colors.blue =   blue
 colors.purple = purple
-colors.aqua = aqua
+colors.aqua =   aqua
 colors.orange = orange
 
-local hls_cursor = utils.get_color_from_var(vim.g.gruvbox_hls_cursor, orange, colors)
-local hls_highlight = utils.get_color_from_var(vim.g.gruvbox_hls_highlight, yellow, colors)
-local number_column = utils.get_color_from_var(vim.g.gruvbox_number_column, nil, colors)
-local color_column = utils.get_color_from_var(vim.g.gruvbox_color_column, bg1, colors)
-local vert_split = utils.get_color_from_var(vim.g.gruvbox_vert_split, bg0, colors)
-local tabline_sel = utils.get_color_from_var(vim.g.gruvbox_tabline_sel, green, colors)
-local sign_column = utils.get_color_from_var(vim.g.gruvbox_sign_column, bg1, colors)
-local cursor_line = utils.get_color_from_var(vim.g.gruvbox_cursor_line, bg1, colors)
+local hls_cursor =      utils.get_color_from_var(vim.g.gruvbox_hls_cursor, orange, colors)
+local hls_highlight =   utils.get_color_from_var(vim.g.gruvbox_hls_highlight, yellow, colors)
+local number_column =   utils.get_color_from_var(vim.g.gruvbox_number_column, nil, colors)
+local color_column =    utils.get_color_from_var(vim.g.gruvbox_color_column, bg1, colors)
+local vert_split =      utils.get_color_from_var(vim.g.gruvbox_vert_split, bg0, colors)
+local tabline_sel =     utils.get_color_from_var(vim.g.gruvbox_tabline_sel, green, colors)
+local sign_column =     utils.get_color_from_var(vim.g.gruvbox_sign_column, bg1, colors)
+local cursor_line =     utils.get_color_from_var(vim.g.gruvbox_cursor_line, bg1, colors)
 
-local improved_strings_fg = fg1
-local improved_strings_bg = bg1
+local improved_strings_fg  = aGreen
+local improved_strings_bg  = bg1
 local improved_strings_gui = styles.italic_strings
 
-local special_string_fg = orange
-local special_string_bg = bg1
+local special_string_fg  = aBlue
+local special_string_bg  = bg1
 local special_string_gui = styles.italic_strings
 
 if not utils.tobool(vim.g.gruvbox_improved_strings) then
-  improved_strings_fg = green
+  improved_strings_fg = aGreen                          -- strings
   improved_strings_bg = nil
-  special_string_bg = nil
-  special_string_gui = nil
+  special_string_bg   = nil
+  special_string_gui  = nil
 end
 
 -- neovim terminal mode colors
-vim.g.terminal_color_0 = bg0
-vim.g.terminal_color_8 = gray
-vim.g.terminal_color_1 = colors.neutral_red
-vim.g.terminal_color_9 = red
-vim.g.terminal_color_2 = colors.neutral_green
-vim.g.terminal_color_10 = green
-vim.g.terminal_color_3 = colors.neutral_yellow
+vim.g.terminal_color_0  = bg0
+vim.g.terminal_color_8  = gray
+vim.g.terminal_color_1  = colors.neutral_red
+vim.g.terminal_color_9  = red
+vim.g.terminal_color_2  = aPurple                    -- prompt username 
+vim.g.terminal_color_10 = aPurple                   -- prompt username 
+vim.g.terminal_color_3  = colors.neutral_yellow
 vim.g.terminal_color_11 = yellow
-vim.g.terminal_color_4 = colors.neutral_blue
-vim.g.terminal_color_12 = blue
-vim.g.terminal_color_5 = colors.neutral_purple
+vim.g.terminal_color_4  = aBlue                      -- path 
+vim.g.terminal_color_12 = aBlue                     -- path 
+vim.g.terminal_color_5  = colors.neutral_purple
 vim.g.terminal_color_13 = purple
-vim.g.terminal_color_6 = colors.neutral_aqua
+vim.g.terminal_color_6  = colors.neutral_aqua
 vim.g.terminal_color_14 = aqua
-vim.g.terminal_color_7 = fg4
+vim.g.terminal_color_7  = fg4
 vim.g.terminal_color_15 = fg1
 
 vim.g.colors_name = "gruvbox"
@@ -138,145 +154,171 @@ local base_group = {
   GruvboxBg3 = { fg = bg3 },
   GruvboxBg4 = { fg = bg4 },
 
-  GruvboxRed = { fg = red },
-  GruvboxRedBold = { fg = red, gui = styles.bold },
-  GruvboxGreen = { fg = green },
-  GruvboxGreenBold = { fg = green, gui = styles.bold },
-  GruvboxYellow = { fg = yellow },
+  GruvboxRed        = { fg = red },
+  GruvboxRedBold    = { fg = red, gui = styles.bold },
+  GruvboxGreen      = { fg = green },
+  GruvboxGreenBold  = { fg = green, gui = styles.bold },
+  GruvboxYellow     = { fg = yellow },
   GruvboxYellowBold = { fg = yellow, gui = styles.bold },
-  GruvboxBlue = { fg = blue },
-  GruvboxBlueBold = { fg = blue, gui = styles.bold },
-  GruvboxPurple = { fg = purple },
+  GruvboxBlue       = { fg = blue },
+  GruvboxBlueBold   = { fg = blue, gui = styles.bold },
+  GruvboxPurple     = { fg = purple },
   GruvboxPurpleBold = { fg = purple, gui = styles.bold },
-  GruvboxAqua = { fg = aqua },
-  GruvboxAquaBold = { fg = aqua, gui = styles.bold },
-  GruvboxOrange = { fg = orange },
+  GruvboxAqua       = { fg = aqua },
+  GruvboxAquaBold   = { fg = aqua, gui = styles.bold },
+  GruvboxOrange     = { fg = orange },
   GruvboxOrangeBold = { fg = orange, gui = styles.bold },
 
-  GruvboxRedSign = { fg = red, bg = sign_column, gui = styles.invert_signs },
-  GruvboxGreenSign = { fg = green, bg = sign_column, gui = styles.invert_signs },
+  AsuraDark         = { fg = aDark },
+  AsuraDarkBold     = { fg = aDark, gui = styles.bold },
+  AsuraWhite        = { fg = aWhite },
+  AsureWhiteBold    = { fg = aWhite, gui = styles.bold },
+  AsuraRed          = { fg = aRed },
+  AsuraRedBold      = { fg = aRed, gui = styles.bold },
+  AsuraGreen        = { fg = aGreen },
+  AsuraGreenBold    = { fg = aGreen, gui = styles.bold },
+  AsuraYellow       = { fg = aYellow },
+  AsuraYellowBold   = { fg = aYellow, gui = styles.bold },
+  AsuraBlue         = { fg = aBlue },
+  AsuraBlueBold     = { fg = aBlue, gui = styles.bold },
+  AsuraLavender     = { fg = aLavender },
+  AsuraLavenderBold = { fg = aLavender, gui = styles.bold },
+  AsuraPurple       = { fg = aPurple },
+  AsuraPurpleBold   = { fg = aPurple, gui = styles.bold },
+  AsuraPink         = { fg = aPink },
+  AsuraPinkBold     = { fg = aPink, gui = styles.bold },
+  AsuraAqua         = { fg = aAqua },
+  AsuraAquaBold     = { fg = aAqua, gui = styles.bold },
+  AsuraOrange       = { fg = aOrange },
+  AsuraOrangeBold   = { fg = aOrange, gui = styles.bold },
+
+  AsuraBlueSign     = { fg = aBlue, bg = sign_column, gui = styles.invert_signs },
+  AsuraPurpleSign   = { fg = aPurple, bg = sign_column, gui = styles.invert_signs },
+
+  GruvboxRedSign    = { fg = red, bg = sign_column, gui = styles.invert_signs },
+  GruvboxGreenSign  = { fg = green, bg = sign_column, gui = styles.invert_signs },
   GruvboxYellowSign = { fg = yellow, bg = sign_column, gui = styles.invert_signs },
-  GruvboxBlueSign = { fg = blue, bg = sign_column, gui = styles.invert_signs },
+  GruvboxBlueSign   = { fg = blue, bg = sign_column, gui = styles.invert_signs },
   GruvboxPurpleSign = { fg = purple, bg = sign_column, gui = styles.invert_signs },
-  GruvboxAquaSign = { fg = aqua, bg = sign_column, gui = styles.invert_signs },
+  GruvboxAquaSign   = { fg = aqua, bg = sign_column, gui = styles.invert_signs },
   GruvboxOrangeSign = { fg = orange, bg = sign_column, gui = styles.invert_signs },
 
-  GruvboxRedUnderline = { gui = styles.undercurl, sp = red },
-  GruvboxGreenUnderline = { gui = styles.undercurl, sp = green },
+  GruvboxRedUnderline    = { gui = styles.undercurl, sp = red },
+  GruvboxGreenUnderline  = { gui = styles.undercurl, sp = green },
   GruvboxYellowUnderline = { gui = styles.undercurl, sp = yellow },
-  GruvboxBlueUnderline = { gui = styles.undercurl, sp = blue },
+  GruvboxBlueUnderline   = { gui = styles.undercurl, sp = blue },
   GruvboxPurpleUnderline = { gui = styles.undercurl, sp = purple },
-  GruvboxAquaUnderline = { gui = styles.undercurl, sp = aqua },
+  GruvboxAquaUnderline   = { gui = styles.undercurl, sp = aqua },
   GruvboxOrangeUnderline = { gui = styles.undercurl, sp = orange },
 
-  ColorColumn = { bg = color_column },
-  Conceal = { fg = blue },
-  Cursor = { gui = styles.inverse },
-  lCursor = "Cursor",
-  iCursor = "Cursor",
-  vCursor = "Cursor",
-  CursorIM = "Cursor",
-  CursorLine = { bg = cursor_line },
-  CursorColumn = "CursorLine",
-  Directory = "GruvboxGreenBold",
-  DiffAdd = { fg = green, bg = bg0, gui = styles.inverse },
-  DiffChange = { fg = aqua, bg = bg0, gui = styles.inverse },
-  DiffDelete = { fg = red, bg = bg0, gui = styles.inverse },
-  DiffText = { fg = yellow, bg = bg0, gui = styles.inverse },
-  ErrorMsg = { fg = bg0, bg = red, gui = styles.bold },
-  VertSplit = { fg = bg3, bg = vert_split },
-  Folded = { fg = gray, bg = bg1, gui = styles.italic },
-  FoldColumn = { fg = gray, bg = bg1 },
-  SignColumn = { bg = sign_column },
-  IncSearch = { fg = hls_cursor, bg = bg0, gui = styles.inverse },
-  LineNr = { fg = bg4, bg = number_column },
-  CursorLineNr = { fg = yellow, bg = bg1 },
-  MatchParen = { bg = bg3, gui = styles.bold },
-  ModeMsg = "GruvboxYellowBold",
-  MoreMsg = "GruvboxYellowBold",
-  NonText = "GruvboxBg2",
-  Normal = { fg = fg1, bg = bg0 },
-  Pmenu = { fg = fg1, bg = bg2 },
-  PmenuSel = { fg = bg2, bg = blue, gui = styles.bold },
-  PmenuSbar = { bg = bg2 },
-  PmenuThumb = { bg = bg4 },
-  Question = "GruvboxOrangeBold",
-  QuickFixLine = { bg = bg0, gui = styles.bold },
-  Search = { fg = hls_highlight, bg = bg0, gui = styles.inverse },
-  SpecialKey = "GruvboxFg4",
-  SpellRare = "GruvboxPurpleUnderline",
-  SpellBad = "GruvboxRedUnderline",
-  SpellLocal = "GruvboxAquaUnderline",
-  SpellCap = utils.tobool(vim.g.gruvbox_improved_warnings) and {
-    fg = green,
-    gui = table_concat({ styles.bold, styles.italic }, ","),
-  } or "GruvboxBlueUnderline",
-  StatusLine = { fg = bg2, bg = fg1, gui = styles.inverse },
-  StatusLineNC = { fg = bg1, bg = fg4, gui = styles.inverse },
-  TabLineFill = { fg = bg4, bg = bg1, gui = styles.invert_tabline },
-  TabLine = "TabLineFill",
-  TabLineSel = { fg = tabline_sel, bg = bg1, gui = styles.invert_tabline },
-  Title = "GruvboxGreenBold",
-  Visual = { bg = bg3, gui = styles.invert_selection },
-  VisualNOS = "Visual",
-  WarningMsg = "GruvboxRedBold",
-  WildMenu = { fg = blue, bg = bg2, gui = styles.bold },
-  Constant = "GruvboxPurple",
-  Special = { fg = special_string_fg, bg = special_string_bg, gui = special_string_gui },
-  String = {
-    fg = improved_strings_fg,
-    bg = improved_strings_bg,
-    gui = improved_strings_gui,
-  },
-  Character = "GruvboxPurple",
-  Number = "GruvboxPurple",
-  Boolean = "GruvboxPurple",
-  Float = "GruvboxPurple",
-  Identifier = "GruvboxBlue",
-  Function = "GruvboxGreenBold",
-  Statement = "GruvboxRed",
-  Conditional = "GruvboxRed",
-  Repeat = "GruvboxRed",
-  Label = "GruvboxRed",
-  Exception = "GruvboxRed",
-  Keyword = "GruvboxRed",
-  Operator = "GruvboxFg1",
-  PreProc = "GruvboxAqua",
-  Include = "GruvboxAqua",
-  Define = "GruvboxAqua",
-  Macro = "GruvboxAqua",
-  PreCondit = "GruvboxAqua",
-  Type = "GruvboxYellow",
-  StorageClass = "GruvboxOrange",
-  Structure = "GruvboxAqua",
-  Typedef = "GruvboxYellow",
-  SpecialChar = "GruvboxRed",
-  Tag = "GruvboxAquaBold",
-  Delimiter = "GruvboxFg3",
-  Comment = { fg = gray, gui = styles.italic_comments },
-  Debug = "GruvboxRed",
-  Underlined = { fg = blue, gui = styles.underline },
-  Bold = { gui = styles.bold },
-  Italic = { gui = styles.italic },
-  Ignore = {},
-  Error = { fg = red, gui = table_concat({ styles.bold, styles.inverse }, ",") },
-  Todo = { fg = fg0, gui = table_concat({ styles.bold, styles.italic }, ",") },
-  diffAdded = "GruvboxGreen",
-  diffRemoved = "GruvboxRed",
-  diffChanged = "GruvboxAqua",
-  diffFile = "GruvboxOrange",
-  diffNewFile = "GruvboxYellow",
-  diffLine = "GruvboxBlue",
+  ColorColumn   = { bg = color_column },
+  Conceal       = { fg = blue },
+  Cursor        = { gui = styles.inverse },
+  lCursor       = "Cursor",
+  iCursor       = "Cursor",
+  vCursor       = "Cursor",
+  CursorIM      = "Cursor",
+  CursorLine    = { bg = bg0 },
+  CursorColumn  = "CursorLine",
+  Directory     = "AsuraAqua", -- NvimTree Folder Colors
+  DiffAdd       = { fg = aAqua, bg = bg0, gui = styles.inverse },
+  DiffChange    = { fg = aBlue, bg = bg0, gui = styles.inverse },
+  DiffDelete    = { fg = aRed, bg = bg0, gui = styles.inverse },
+  DiffText      = { fg = aPurple, bg = bg0, gui = styles.inverse },
+  ErrorMsg      = { fg = aRed, bg = bg0, gui = styles.bold }, -- Command line error messages
+  VertSplit     = { fg = bg2, bg = vert_split },
+  Folded        = { fg = aOrange, bg = bg1, gui = styles.italic }, -- folded text color & style
+  FoldColumn    = { fg = aOrange, bg = bg1 },                      -- ???
+  SignColumn    = { bg = sign_column },
+  IncSearch     = { fg = hls_cursor, bg = bg0, gui = styles.inverse },
+  LineNr        = { fg = aWhite, bg = number_column },
+  CursorLineNr  = { fg = aAqua, bg = bg1 },
+  MatchParen    = { bg = aOrange, gui = styles.bold },
+  ModeMsg       = "GruvboxYellowBold",
+  MoreMsg       = "GruvboxYellowBold",
+  NonText       = "GruvboxBg2",
+  Normal        = { fg = fg1, bg = bg0 },
+  Pmenu         = { fg = fg1, bg = bg2 },
+  PmenuSel      = { fg = bg2, bg = aBlue, gui = styles.bold },
+  PmenuSbar     = { bg = bg2 },
+  PmenuThumb    = { bg = bg4 },
+  Question      = "AsuraOrangeBold",
+  QuickFixLine  = { bg = bg0, gui = styles.bold },
+  Search        = { fg = hls_highlight, bg = bg0, gui = styles.inverse },
+  SpecialKey    = "GruvboxFg4",
+  SpellRare     = "GruvboxPurpleUnderline",
+  SpellBad      = "GruvboxRedUnderline",
+  SpellLocal    = "GruvboxAquaUnderline",
+  SpellCap      = utils.tobool(vim.g.gruvbox_improved_warnings) and {
+                    fg = aGreen,
+                    gui = table_concat({ styles.bold, styles.italic }, ","),
+                } or "GruvboxBlueUnderline",
+  StatusLine    = { fg = bg2, bg = fg1, gui = styles.inverse },
+  StatusLineNC  = { fg = bg1, bg = fg4, gui = styles.inverse },
+  TabLineFill   = { fg = bg4, bg = bg1, gui = styles.invert_tabline },
+  TabLine       = "TabLineFill",
+  TabLineSel    = { fg = tabline_sel, bg = bg1, gui = styles.invert_tabline },
+  Title         = "AsuraGreenBold",
+  Visual        = { bg = bg3, gui = styles.invert_selection },
+  VisualNOS     = "Visual",
+  WarningMsg    = "AsuraRedBold",
+  WildMenu      = { fg = aBlue, bg = bg2, gui = styles.bold },
+  Constant      = "AsuraWhite",         -- constant variables 
+  Special       = { fg = special_string_fg, bg = special_string_bg, gui = special_string_gui },
+  String        = {
+                    fg = improved_strings_fg,
+                    bg = improved_strings_bg,
+                    gui = improved_strings_gui,
+                },
+  Character     = "AsuraGreen",         -- chars
+  Number        = "AsuraLavender",      -- integers
+  Boolean       = "AsuraYellow",        -- boolean keyword 
+  Float         = "AsuraLavender",      -- floats
+  Identifier    = "AsuraWhite",         -- variables
+  Function      = "AsuraBlue",          -- functions
+  Statement     = "AsuraPurple",        -- ?? 
+  Conditional   = "AsuraPurple",        -- if statements
+  Repeat        = "AsuraPurple",        -- loops
+  Label         = "GruvboxRed",         -- ?? 
+  Exception     = "AsuraPurple",        -- try catch 
+  Keyword       = "AsuraPink",          -- auto, const, struct, template, etc.
+  Operator      = "GruvboxFg1",         -- ?? 
+  PreProc       = "AsuraWhite",         -- square brackets 
+  Include       = "AsuraAqua",          -- #include & namespaces
+  Define        = "AsuraPurple",        -- ??  
+  Macro         = "GruvboxAqua",        -- ?? 
+  PreCondit     = "AsuraAqua",          -- ?? 
+  Type          = "AsuraPurple",        -- Type defines
+  StorageClass  = "AsuraPurple",        -- ?? 
+  Structure     = "GruvboxRed",         -- ?? 
+  Typedef       = "AsuraPink",          -- ?? 
+  SpecialChar   = "GruvboxBlue",        -- ?? 
+  Tag           = "GruvboxRedBold",     -- ?? 
+  Delimiter     = "AsuraWhiteBold",     -- Closing brackets & Parenthesis
+  Comment       = { fg = gray, gui = styles.italic_comments },
+  Debug         = "AsuraRed",           -- ?? 
+  Underlined    = { fg = aBlue, gui = styles.underline }, -- ?? 
+  Bold          = { gui = styles.bold },
+  Italic        = { gui = styles.italic },
+  Ignore        = {},
+  Error         = { fg = red, gui = table_concat({ styles.bold, styles.inverse }, ",") },
+  Todo          = { fg = fg0, gui = table_concat({ styles.bold, styles.italic }, ",") },
+  diffAdded     = "AsuraAqua",
+  diffRemoved   = "AsuraRed",
+  diffChanged   = "AsuraBlue",
+  diffFile      = "AsuraOrange",
+  diffNewFile   = "AsuraPurple",
+  diffLine      = "AsuraYellow",
   -- signature
-  SignatureMarkText = "GruvboxBlueSign",
-  SignatureMarkerText = "GruvboxPurpleSign",
+  SignatureMarkText      = "AsuraBlueSign",
+  SignatureMarkerText    = "AsuraPurpleSign",
   -- gitcommit
-  gitcommitSelectedFile = "GruvboxGreen",
-  gitcommitDiscardedFile = "GruvboxRed",
+  gitcommitSelectedFile  = "AsuraGreen",
+  gitcommitDiscardedFile = "AsuraRed",
   -- checkhealth
-  healthError = { fg = bg0, bg = red },
-  healthSuccess = { fg = bg0, bg = green },
-  healthWarning = { fg = bg0, bg = yellow },
+  healthError   = { fg = bg0, bg = aRed },
+  healthSuccess = { fg = bg0, bg = aGreen },
+  healthWarning = { fg = bg0, bg = aYellow },
 }
 
 return base_group
