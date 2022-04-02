@@ -121,20 +121,20 @@ end
 -- neovim terminal mode colors
 vim.g.terminal_color_0  = bg0
 vim.g.terminal_color_8  = gray
-vim.g.terminal_color_1  = colors.neutral_red
-vim.g.terminal_color_9  = red
-vim.g.terminal_color_2  = aPurple                    -- prompt username 
+vim.g.terminal_color_1  = aRed
+vim.g.terminal_color_9  = aRed
+vim.g.terminal_color_2  = aPurple                   -- prompt username 
 vim.g.terminal_color_10 = aPurple                   -- prompt username 
-vim.g.terminal_color_3  = colors.neutral_yellow
-vim.g.terminal_color_11 = yellow
-vim.g.terminal_color_4  = aBlue                      -- path 
+vim.g.terminal_color_3  = aYellow
+vim.g.terminal_color_11 = aOrange
+vim.g.terminal_color_4  = aBlue                     -- path 
 vim.g.terminal_color_12 = aBlue                     -- path 
-vim.g.terminal_color_5  = colors.neutral_purple
-vim.g.terminal_color_13 = purple
-vim.g.terminal_color_6  = colors.neutral_aqua
-vim.g.terminal_color_14 = aqua
-vim.g.terminal_color_7  = fg4
-vim.g.terminal_color_15 = fg1
+vim.g.terminal_color_5  = aPurple
+vim.g.terminal_color_13 = aPurple
+vim.g.terminal_color_6  = aAqua
+vim.g.terminal_color_14 = aAqua
+vim.g.terminal_color_7  = aWhite
+vim.g.terminal_color_15 = aWhite
 
 vim.g.colors_name = "gruvbox"
 
